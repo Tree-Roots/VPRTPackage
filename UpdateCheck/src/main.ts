@@ -10,7 +10,7 @@ import {
   const json: VRCOfficial = await res.json()
   // 读取 com.vrchat.core.vpm-resolver 的版本号，位于 packages → com.vrchat.core.vpm-resolver → versions → x.x.x ，其中 x.x.x 为版本号，取最新的版本
   // Object.keys 选最后一个，即最新的版本
-  const resolverVersionKeys = Object.keys(json.packages["com.vrchat.core.vpm-resolver"].versions)
+  const resolverVersionKeys = Object.keys(json.packages["com.vrchat.core.vpm-resolver"].versions).sort()
   let resolverVersion = resolverVersionKeys.pop() ?? ""
   if (resolverVersion === "") {
     console.error("can't find version")
